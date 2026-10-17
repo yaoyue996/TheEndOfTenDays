@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>十日终焉 · 终焉之地</title>
+<meta name="description" content="以《十日终焉》为设定的网页生存游戏：十日一洗牌，觉醒回响，集齐100积分逃离终焉之地。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="brand">十日终焉<span>终焉之地 · 道城</span></div>
+    <div class="stats">
+      <div class="stat">第 <b id="dayNum">1</b> 日 <span id="clock">00:00</span></div>
+      <div class="stat">积分 <b id="points">0</b> / 100</div>
+      <div class="bar hp"><i id="hpBar"></i><span id="hpText">100/100</span></div>
+      <div class="bar sp"><i id="spBar"></i><span id="spText">100/100</span></div>
+      <div class="stat">下个回响 <b id="echoCountdown">25:00</b></div>
+    </div>
+    <div class="echoBar" id="echoBar"></div>
+    <div class="speed">
+      <button onclick="setSpeed(1)">×1</button>
+      <button onclick="setSpeed(2)">×2</button>
+      <button onclick="setSpeed(5)">×5</button>
+      <button onclick="setSpeed(10)">×10</button>
+      <button id="pauseBtn">暂停</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="left">
+      <div class="progress"><i id="progFill"></i></div>
+      <h3>终焉之地</h3>
+      <div id="scene" class="scene"></div>
+      <div class="actions">
+        <button onclick="explore()">探索终焉之地<small>消耗体力 10 · 触发随机事件</small></button>
+        <button onclick="restAction()">休息<small>恢复体力与生命</small></button>
+        <button onclick="openGamble()">赌命<small>消耗体力 10 · 赢了得积分</small></button>
+      </div>
+    </section>
+
+    <section class="right">
+      <nav class="tabs">
+        <button data-tab="npc" class="active">人物</button>
+        <button data-tab="echo">回响</button>
+        <button data-tab="bag">背包</button>
+        <button data-tab="rule">规则</button>
+      </nav>
+      <div id="tabContent"></div>
+    </section>
+  </main>
+</div>
+
+<div id="overlay"></div>
+
+<script src="game.js"></script>
+</body>
+</html>
